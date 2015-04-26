@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Humanizer;
 
 namespace Homework
 {
@@ -28,6 +29,17 @@ namespace Homework
                 e.Handled = true;
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+             int numar = 0;
+            if (Int32.TryParse(textBox1.Text,out numar))
+            {
+                string rezultat = numar.ToWords(new System.Globalization.CultureInfo(lang[comboBox1.SelectedIndex]));
+                MessageBox.Show(rezultat);
+            }     
+      
         }
     }
 }
